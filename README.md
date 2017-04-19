@@ -1,9 +1,14 @@
-# api documentation for  [react-addons-update (v15.4.2)](https://github.com/facebook/react#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-react-addons-update.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-react-addons-update) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-react-addons-update.svg)](https://travis-ci.org/npmdoc/node-npmdoc-react-addons-update)
-#### This package provides the React updates add-on.
+# npmdoc-react-addons-update
 
-[![NPM](https://nodei.co/npm/react-addons-update.png?downloads=true)](https://www.npmjs.com/package/react-addons-update)
+#### api documentation for  [react-addons-update (v15.5.2)](https://github.com/facebook/react#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-react-addons-update.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-react-addons-update) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-react-addons-update.svg)](https://travis-ci.org/npmdoc/node-npmdoc-react-addons-update)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-react-addons-update/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-react-addons-update_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-react-addons-update/build/apidoc.html)
+#### >**Note:** >This is a legacy React addon, and is no longer maintained. > >We don't encourage using it in new code, but it exists for backwards compatibility.   >The recommended migration path is to use [`immutability-helper`](https://github.com/kolodny/im
+
+[![NPM](https://nodei.co/npm/react-addons-update.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/react-addons-update)
+
+- [https://npmdoc.github.io/node-npmdoc-react-addons-update/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-react-addons-update/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-react-addons-update/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-react-addons-update/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-react-addons-update/build/screenCapture.npmPackageListing.svg)
 
@@ -20,21 +25,25 @@
         "url": "https://github.com/facebook/react/issues"
     },
     "dependencies": {
-        "fbjs": "^0.8.4",
+        "fbjs": "^0.8.9",
         "object-assign": "^4.1.0"
     },
-    "description": "This package provides the React updates add-on.",
-    "devDependencies": {},
+    "description": ">**Note:** >This is a legacy React addon, and is no longer maintained. > >We don't encourage using it in new code, but it exists for backwards compatibility.   >The recommended migration path is to use ['immutability-helper'](https://github.com/kolodny/im",
+    "devDependencies": {
+        "jest": "^19.0.2"
+    },
     "directories": {},
     "dist": {
-        "shasum": "43a9578e3b46bc5f7eed2ba52560dd57a8aff918",
-        "tarball": "https://registry.npmjs.org/react-addons-update/-/react-addons-update-15.4.2.tgz"
+        "shasum": "0ada50494387b17238999ee9662f9f3fc38f935d",
+        "tarball": "https://registry.npmjs.org/react-addons-update/-/react-addons-update-15.5.2.tgz"
     },
     "files": [
         "LICENSE",
         "PATENTS",
         "README.md",
-        "index.js"
+        "index.js",
+        "react-addons-update.js",
+        "react-addons-update.min.js"
     ],
     "homepage": "https://github.com/facebook/react#readme",
     "keywords": [
@@ -45,58 +54,45 @@
     "main": "index.js",
     "maintainers": [
         {
-            "name": "fb",
-            "email": "opensource+npm@fb.com"
+            "name": "acdlite"
         },
         {
-            "name": "gaearon",
-            "email": "dan.abramov@gmail.com"
+            "name": "brianvaughn"
         },
         {
-            "name": "graue",
-            "email": "scott@oceanbase.org"
+            "name": "fb"
         },
         {
-            "name": "sebmarkbage",
-            "email": "sebastian@calyptus.eu"
+            "name": "gaearon"
         },
         {
-            "name": "spicyj",
-            "email": "ben@benalpert.com"
+            "name": "sebmarkbage"
         },
         {
-            "name": "tomocchino",
-            "email": "tomocchino@gmail.com"
+            "name": "spicyj"
         },
         {
-            "name": "zpao",
-            "email": "paul@oshannessy.com"
+            "name": "tomocchino"
+        },
+        {
+            "name": "trueadm"
+        },
+        {
+            "name": "zpao"
         }
     ],
     "name": "react-addons-update",
     "optionalDependencies": {},
-    "peerDependencies": {
-        "react": "^15.4.2"
-    },
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/facebook/react.git"
     },
-    "scripts": {},
-    "version": "15.4.2"
+    "scripts": {
+        "test": "jest"
+    },
+    "version": "15.5.2"
 }
 ```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module react-addons-update](#apidoc.module.react-addons-update)
-
-
-
-# <a name="apidoc.module.react-addons-update"></a>[module react-addons-update](#apidoc.module.react-addons-update)
 
 
 
