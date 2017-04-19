@@ -51,9 +51,9 @@
 
         href="https://github.com/facebook/react#readme"
 
-    >react-addons-update (v15.4.2)</a>
+    >react-addons-update (v15.5.2)</a>
 </h1>
-<h4>This package provides the React updates add-on.</h4>
+<h4>>**Note:** >This is a legacy React addon, and is no longer maintained. > >We don't encourage using it in new code, but it exists for backwards compatibility.   >The recommended migration path is to use [`immutability-helper`](https://github.com/kolodny/im</h4>
 <div class="apidocSectionDiv"><a
     href="#apidoc.tableOfContents"
     id="apidoc.tableOfContents"
@@ -61,12 +61,129 @@
 
     <li class="apidocModuleLi"><a href="#apidoc.module.react-addons-update">module react-addons-update</a><ol>
 
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.react-addons-update.react-addons-update">
+            function <span class="apidocSignatureSpan"></span>react-addons-update
+            <span class="apidocSignatureSpan">(value, spec)</span>
+            </a>
+
+        </li>
+
     </ol></li>
 
 </ol></div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.react-addons-update" id="apidoc.module.react-addons-update">module react-addons-update</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.react-addons-update.react-addons-update" id="apidoc.element.react-addons-update.react-addons-update">
+        function <span class="apidocSignatureSpan"></span>react-addons-update
+        <span class="apidocSignatureSpan">(value, spec)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function update(value, spec) {
+  invariant(
+    typeof spec === &#x27;object&#x27;,
+    &#x27;update(): You provided a key path to update() that did not contain one &#x27; +
+    &#x27;of %s. Did you forget to include {%s: ...}?&#x27;,
+    ALL_COMMANDS_LIST.join(&#x27;, &#x27;),
+    COMMAND_SET
+  );
+
+  if (hasOwnProperty.call(spec, COMMAND_SET)) {
+    invariant(
+      Object.keys(spec).length === 1,
+      &#x27;Cannot have more than one key in an object with %s&#x27;,
+      COMMAND_SET
+    );
+
+    return spec[COMMAND_SET];
+  }
+
+  var nextValue = shallowCopy(value);
+
+  if (hasOwnProperty.call(spec, COMMAND_MERGE)) {
+    var mergeObj = spec[COMMAND_MERGE];
+    invariant(
+      mergeObj &#x26;&#x26; typeof mergeObj === &#x27;object&#x27;,
+      &#x27;update(): %s expects a spec of type \&#x27;object\&#x27;; got %s&#x27;,
+      COMMAND_MERGE,
+      mergeObj
+    );
+    invariant(
+      nextValue &#x26;&#x26; typeof nextValue === &#x27;object&#x27;,
+      &#x27;update(): %s expects a target of type \&#x27;object\&#x27;; got %s&#x27;,
+      COMMAND_MERGE,
+      nextValue
+    );
+    Object.assign(nextValue, spec[COMMAND_MERGE]);
+  }
+
+  if (hasOwnProperty.call(spec, COMMAND_PUSH)) {
+    invariantArrayCase(value, spec, COMMAND_PUSH);
+    spec[COMMAND_PUSH].forEach(function(item) {
+      nextValue.push(item);
+    });
+  }
+
+  if (hasOwnProperty.call(spec, COMMAND_UNSHIFT)) {
+    invariantArrayCase(value, spec, COMMAND_UNSHIFT);
+    spec[COMMAND_UNSHIFT].forEach(function(item) {
+      nextValue.unshift(item);
+    });
+  }
+
+  if (hasOwnProperty.call(spec, COMMAND_SPLICE)) {
+    invariant(
+      Array.isArray(value),
+      &#x27;Expected %s target to be an array; got %s&#x27;,
+      COMMAND_SPLICE,
+      value
+    );
+    invariant(
+      Array.isArray(spec[COMMAND_SPLICE]),
+      &#x27;update(): expected spec of %s to be an array of arrays; got %s. &#x27; +
+      &#x27;Did you forget to wrap your parameters in an array?&#x27;,
+      COMMAND_SPLICE,
+      spec[COMMAND_SPLICE]
+    );
+    spec[COMMAND_SPLICE].forEach(function(args) {
+      invariant(
+        Array.isArray(args),
+        &#x27;update(): expected spec of %s to be an array of arrays; got %s. &#x27; +
+        &#x27;Did you forget to wrap your parameters in an array?&#x27;,
+        COMMAND_SPLICE,
+        spec[COMMAND_SPLICE]
+      );
+      nextValue.splice.apply(nextValue, args);
+    });
+  }
+
+  if (hasOwnProperty.call(spec, COMMAND_APPLY)) {
+    invariant(
+      typeof spec[COMMAND_APPLY] === &#x27;function&#x27;,
+      &#x27;update(): expected spec of %s to be a function; got %s.&#x27;,
+      COMMAND_APPLY,
+      spec[COMMAND_APPLY]
+    );
+    nextValue = spec[COMMAND_APPLY](nextValue);
+  }
+
+  for (var k in spec) {
+    if (!(ALL_COMMANDS_SET.hasOwnProperty(k) &#x26;&#x26; ALL_COMMANDS_SET[k])) {
+      nextValue[k] = update(value[k], spec[k]);
+    }
+  }
+
+  return nextValue;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 </div>
 
